@@ -42,7 +42,6 @@ class MaxHeapTest {
     }
 
     @Test
-    @Ignore
     void delete() {
         MaxHeap heap = new MaxHeap(10);
         heap.add(10);
