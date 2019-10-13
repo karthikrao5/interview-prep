@@ -7,14 +7,17 @@ import java.util.LinkedList;
 class Cache {
     private int capacity;
     private LinkedList<Item> cache;
-    private HashMap<Integer, Integer> map;
 
     Cache(int capacity) {
         this.capacity = capacity;
         cache = new LinkedList<>();
-        map = new HashMap<>();
     }
 
+    /**
+     * @param key of item to find
+     * @return value of item if the entry exists, -1 if it does not
+     *         move found item to top of list (most recently used)
+     */
     int get(int key) {
         Iterator it = cache.iterator();
         int index = 0;
@@ -37,6 +40,13 @@ class Cache {
         return -1;
     }
 
+    /**
+     * @param key key of item to put
+     * @param value value of item to put
+     *
+     * if key already exists, replace the value and move it to top of list
+     *              must not go over capacity
+     */
     void put(int key, int value) {
         Iterator it = cache.iterator();
         Item found = null;
