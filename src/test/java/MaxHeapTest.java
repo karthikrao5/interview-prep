@@ -1,6 +1,5 @@
-package me.karthikrao.heap;
 
-import org.junit.Ignore;
+import heap.MaxHeap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

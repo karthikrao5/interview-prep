@@ -1,14 +1,13 @@
-package me.karthikrao.lruCache;
+package lruCache;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-class Cache {
+public class Cache {
     private int capacity;
     private LinkedList<Item> cache;
 
-    Cache(int capacity) {
+    public Cache(int capacity) {
         this.capacity = capacity;
         cache = new LinkedList<>();
     }
@@ -18,7 +17,7 @@ class Cache {
      * @return value of item if the entry exists, -1 if it does not
      *         move found item to top of list (most recently used)
      */
-    int get(int key) {
+    public int get(int key) {
         Iterator it = cache.iterator();
         int index = 0;
         Item found = null;
@@ -47,7 +46,7 @@ class Cache {
      * if key already exists, replace the value and move it to top of list
      *              must not go over capacity
      */
-    void put(int key, int value) {
+    public void put(int key, int value) {
         Iterator it = cache.iterator();
         Item found = null;
         int index = 0;
@@ -81,7 +80,7 @@ class Cache {
         }
     }
 
-    void print() {
+    public void print() {
         System.out.println("======================start cache=================");
         for (Item curr : cache) {
             System.out.println(String.format("(%d, %d)", curr.key, curr.value));

@@ -1,14 +1,13 @@
-package me.karthikrao.algorithms;
-
-import org.junit.Ignore;
+import algorithms.Algorithms;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AlgorithmsTest {
 
     @Test
-    @Ignore
+    @Disabled
     void reverse() {
         assertEquals(321, Algorithms.reverse(123));
         assertEquals(-123, Algorithms.reverse(-321));

@@ -1,4 +1,4 @@
-package me.karthikrao.hash.map;
+package hash.map;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -16,7 +16,7 @@ public class HashMap {
         this.size = 0;
     }
 
-    int size() {
+    public int size() {
         return size;
     }
 
@@ -24,7 +24,7 @@ public class HashMap {
      * @param key of entry
      * @return value of object at the key
      */
-    int get(int key) {
+    public int get(int key) {
         LocalDateTime start = LocalDateTime.now();
 
         int index = hash(key) % capacity;
@@ -41,7 +41,7 @@ public class HashMap {
         return -1;
     }
 
-    void add(int key, int value) {
+    public void add(int key, int value) {
         LocalDateTime start = LocalDateTime.now();
 
         Entry node = new Entry(key, value);
@@ -73,7 +73,7 @@ public class HashMap {
         return Objects.hash(key);
     }
 
-    void print() {
+    public void print() {
         for (Entry entry : arr) {
             if (entry != null) {
                 Entry curr = entry;

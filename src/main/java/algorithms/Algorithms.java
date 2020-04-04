@@ -1,7 +1,7 @@
-package me.karthikrao.algorithms;
+package algorithms;
 
 public class Algorithms {
-    static int reverse(int x) {
+    public static int reverse(int x) {
         boolean isNegative = false;
         if (x < 0) {
             isNegative = true;

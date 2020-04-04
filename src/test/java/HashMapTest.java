@@ -1,9 +1,8 @@
-package me.karthikrao.hash.map;
-
-import org.junit.Ignore;
+import hash.map.HashMap;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HashMapTest {
     @Test
@@ -22,7 +21,7 @@ class HashMapTest {
     }
 
     @Test
-    @Ignore
+    @Disabled
     public void handleAddCollision() {
         HashMap map = new HashMap(129);
 

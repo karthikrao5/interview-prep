@@ -1,13 +1,13 @@
-package me.karthikrao.lruCache;
+package lruCache;
 
 import java.util.HashMap;
 
-class FasterCache {
+public class FasterCache {
     private int capacity;
     private HashMap<Integer, Node> map;
     private Node start,end;
 
-    FasterCache(int capacity) {
+    public FasterCache(int capacity) {
         this.capacity = capacity;
         map = new HashMap<>(capacity);
         start = new Node(Integer.MIN_VALUE,Integer.MIN_VALUE);
@@ -16,7 +16,7 @@ class FasterCache {
         end.left = start;
     }
 
-    int get(int key) {
+    public int get(int key) {
         if (map.containsKey(key)) {
             Node found = map.get(key);
             removeFromMiddle(found);
@@ -33,7 +33,7 @@ class FasterCache {
      * @param value value to add
      *              if key exists, update value and move to top
      */
-    void put(int key, int value) {
+    public void put(int key, int value) {
 //        check if key exists
         if(map.containsKey(key)) {
 //            update value and move to top
@@ -83,7 +83,7 @@ class FasterCache {
         curr.right.left = curr.left;
     }
 
-    void print() {
+    public void print() {
         System.out.println("PRINTING_CACHE");
         Node curr = start.right;
         while(curr != end) {

@@ -1,15 +1,15 @@
-package me.karthikrao.heap;
+package heap;
 
-class MaxHeap {
+public class MaxHeap {
     private int[] arr;
     private int size;
 
-    MaxHeap(int cap) {
+    public MaxHeap(int cap) {
         this.arr = new int[cap];
         this.size = 0;
     }
 
-    boolean add(int num) {
+    public boolean add(int num) {
         arr[size] = num;
 
         int currIndex = size;
@@ -22,11 +22,11 @@ class MaxHeap {
         return true;
     }
 
-    int getMax() {
+    public int getMax() {
         return arr[0];
     }
 
-    boolean delete(int num) {
+    public boolean delete(int num) {
         int numIndex = findIndex(num);
         if (numIndex < 0) {
             return false;
@@ -41,7 +41,7 @@ class MaxHeap {
         return true;
     }
 
-    int size() {
+    public int size() {
         return size;
     }
 

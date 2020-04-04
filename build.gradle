@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.25'
+
+    testImplementation('org.junit.jupiter:junit-jupiter:5.6.1')}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceSets {
+    main.java.srcDirs 'src/main/java'
+    test.java.srcDirs 'src/test/java'
+}
+

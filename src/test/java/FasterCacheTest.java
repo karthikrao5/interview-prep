@@ -1,14 +1,13 @@
-package me.karthikrao.lruCache;
 
+import lruCache.FasterCache;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CacheTest {
-
+class FasterCacheTest {
     @Test
     public void add() {
-        Cache cache = new Cache(4);
+        FasterCache cache = new FasterCache(4);
         cache.put(1, 100);
         cache.put(2, 200);
         cache.put(3, 300);
@@ -23,7 +22,7 @@ class CacheTest {
 
     @Test
     void keyDuplicate() {
-        Cache cache = new Cache(2);
+        FasterCache cache = new FasterCache(2);
 
         assertEquals(-1, cache.get(2));
 
@@ -39,7 +38,7 @@ class CacheTest {
 
     @Test
     void firstKeyDuplicate() {
-        Cache cache = new Cache(2);
+        FasterCache cache = new FasterCache(2);
 
         cache.put(2, 1);
         cache.put(2, 2);
