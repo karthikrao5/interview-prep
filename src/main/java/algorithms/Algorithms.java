@@ -107,7 +107,7 @@ public class Algorithms {
                     j++;
 
                     //skip over all duplicates of j
-                    while(j < k && nums[j] == nums[j-1]) j++;
+                    while (j < k && nums[j] == nums[j - 1]) j++;
                 } else if (nums[j] + nums[k] > T) {
                     k--;
                 } else {
@@ -116,5 +116,21 @@ public class Algorithms {
             }
         }
         return output;
+    }
+
+    /**
+     * Maximal square leet code mediuum #221
+     */
+    public static int maximalSquare(char[][] matrix) {
+        //dp[i][j] is the length of the side of a square from bottom right corner
+        int[][] dp = new int[matrix.length][matrix[0].length];
+
+        for(int row = 1; row < matrix.length; row++) {
+            for (int col = 1; col < matrix[row].length; col++) {
+                if (matrix[row][col] == 1) {
+
+                }
+            }
+        }
     }
 }

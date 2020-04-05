@@ -54,4 +54,26 @@ class AlgorithmsTest {
         assertTrue(actualOutput.containsAll(expectedOutput));
     }
 
+    @Test
+    void maximalSquare() {
+        char[][] arr = {
+                {1, 0, 1, 0, 0},
+                {1, 0, 1, 1, 1},
+                {1, 1, 1, 1, 1},
+                {1, 1, 0, 1, 0}
+        };
+
+        int maxSizeSquare = Algorithms.maximalSquare(arr);
+        assertEquals(4, maxSizeSquare);
+
+        char[][] arr2 = {
+                {1, 0, 1, 0, 0},
+                {1, 1, 1, 1, 1},
+                {1, 1, 1, 0, 1},
+                {1, 1, 1, 1, 0}
+        };
+
+        maxSizeSquare = Algorithms.maximalSquare(arr);
+        assertEquals(9, maxSizeSquare);
+    }
 }
