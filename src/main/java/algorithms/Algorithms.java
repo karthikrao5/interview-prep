@@ -63,7 +63,7 @@ public class Algorithms {
         return sb.toString();
     }
 
-    /*
+    /**
      * https://leetcode.com/problems/3sum/
      * O(n^3) brute force threeSum
      * Ensures no duplicates
@@ -86,7 +86,7 @@ public class Algorithms {
         return output;
     }
 
-    /*
+    /**
      * O(n^2)
      * https://leetcode.com/problems/3sum/
      */
