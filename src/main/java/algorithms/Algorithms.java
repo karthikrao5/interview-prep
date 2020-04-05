@@ -1,5 +1,9 @@
 package algorithms;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Algorithms {
     public static int reverse(int x) {
         boolean isNegative = false;
@@ -8,7 +12,7 @@ public class Algorithms {
             x *= -1;
         }
         int reverse = 0;
-        while(x > 0) {
+        while (x > 0) {
             reverse = reverse * 10 + x % 10;
             x = x / 10;
             if (reverse > Integer.MAX_VALUE - 1 || reverse < Integer.MIN_VALUE + 1)
@@ -57,5 +61,60 @@ public class Algorithms {
         }
 
         return sb.toString();
+    }
+
+    /*
+     * https://leetcode.com/problems/3sum/
+     * O(n^3) brute force threeSum
+     * Ensures no duplicates
+     */
+    public static List<List<Integer>> bruteForceThreeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> output = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            for (int j = i + 1; j < nums.length; j++) {
+                if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+                for (int k = j + 1; k < nums.length; k++) {
+                    if (k > j + 1 && nums[k] == nums[k - 1]) continue;
+                    if (nums[i] + nums[j] + nums[k] == 0) {
+                        output.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    }
+                }
+            }
+        }
+        return output;
+    }
+
+    /*
+     * O(n^2)
+     * https://leetcode.com/problems/3sum/
+     */
+    public static List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> output = new ArrayList<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+            int j = i + 1;
+            int k = nums.length - 1;
+
+            int T = -1 * nums[i];
+            while (j < k) {
+                if (nums[j] + nums[k] == T) {
+                    output.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    j++;
+
+                    //skip over all duplicates of j
+                    while(j < k && nums[j] == nums[j-1]) j++;
+                } else if (nums[j] + nums[k] > T) {
+                    k--;
+                } else {
+                    j++;
+                }
+            }
+        }
+        return output;
     }
 }
