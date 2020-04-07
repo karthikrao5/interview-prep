@@ -178,6 +178,48 @@ public class Algorithms {
         return count;
     }
 
+    public static String getHint(String secret, String guess) {
+        int cows = 0;
+        int bulls = 0;
+
+        HashMap<Character, Integer> secretMap = new HashMap();
+
+        //check positions
+        for (int i = 0; i < guess.length(); i++) {
+            Character sChar = secret.charAt(i);
+            Character gChar = guess.charAt(i);
+
+            if (sChar == gChar) {
+                bulls++;
+            } else {
+                if (secretMap.containsKey(sChar)) {
+                    //count the number of duplicates in the secret
+                    secretMap.put(sChar, secretMap.get(sChar) + 1);
+                } else {
+                    secretMap.put(sChar, 1);
+                }
+            }
+        }
+
+        //go thru guess and increment cows when a value is found as a key and decrement it
+        for(int i = 0; i < guess.length(); i++) {
+            Character sChar = secret.charAt(i);
+            Character gChar = guess.charAt(i);
+
+            if (secretMap.containsKey(gChar)) {
+                int newQuantity = secretMap.get(gChar) - 1;
+                cows++;
+
+                if (newQuantity == 0) {
+                    secretMap.remove(gChar);
+                } else {
+                    secretMap.put(gChar, newQuantity);
+                }
+            }
+        }
+        return bulls + "A" + cows + "B";
+    }
+
     private static void print2dArray(int[][] input) {
         System.out.println("Printing array");
         for (int i = 0; i < input.length; i++) {

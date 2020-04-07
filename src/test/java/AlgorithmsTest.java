@@ -150,4 +150,36 @@ class AlgorithmsTest {
     void countNodesEmptyRoot() {
         assertEquals(0, Algorithms.countNodes(null));
     }
+
+    @Test
+    void cowsAndBullsCase1() {
+        String secret = "1807";
+        String guess = "7810";
+
+        assertEquals("1A3B", Algorithms.getHint(secret, guess));
+    }
+
+    @Test
+    void cowsAndBullsCase2() {
+        String secret = "1123";
+        String guess = "0111";
+
+        assertEquals("1A1B", Algorithms.getHint(secret, guess));
+    }
+
+    @Test
+    void cowsAndBullsCase3() {
+        String secret = "1122";
+        String guess = "2211";
+
+        assertEquals("0A4B", Algorithms.getHint(secret, guess));
+    }
+
+    @Test
+    void cowsAndBullsCase4() {
+        String secret = "11";
+        String guess = "10";
+
+        assertEquals("1A0B", Algorithms.getHint(secret, guess));
+    }
 }
