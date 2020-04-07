@@ -182,4 +182,26 @@ class AlgorithmsTest {
 
         assertEquals("1A0B", Algorithms.getHint(secret, guess));
     }
+
+    @Test
+    void calcEquationCase1() {
+        List<List<String>> equations = Arrays.asList(Arrays.asList("a", "b"), Arrays.asList("b", "c"));
+        double[] values = new double[]{2.0, 3.0};
+        List<List<String>> queries = Arrays.asList(
+                Arrays.asList("a", "c"),
+                Arrays.asList("b", "a"),
+                Arrays.asList("a", "e"),
+                Arrays.asList("a", "a"),
+                Arrays.asList("x", "x")
+        );
+
+        double[] solution = Algorithms.calcEquation(equations, values, queries);
+        double[] expectedSolution = {6.0, 0.5, -1.0, 1.0, -1.0};
+
+        assertEquals(solution.length, expectedSolution.length);
+
+        for (int i = 0; i < solution.length; i++) {
+            assertEquals(solution[i], expectedSolution[i]);
+        }
+    }
 }

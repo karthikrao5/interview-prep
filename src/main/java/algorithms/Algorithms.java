@@ -178,6 +178,12 @@ public class Algorithms {
         return count;
     }
 
+    /**
+     * unfinished
+     * @param secret
+     * @param guess
+     * @return
+     */
     public static String getHint(String secret, String guess) {
         int cows = 0;
         int bulls = 0;
@@ -228,5 +234,9 @@ public class Algorithms {
             }
             System.out.println("");
         }
+    }
+
+    public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+        return new double[]{};
     }
 }
