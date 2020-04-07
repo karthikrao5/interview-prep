@@ -1,4 +1,5 @@
 import algorithms.Algorithms;
+import algorithms.TreeNode;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -55,17 +56,20 @@ class AlgorithmsTest {
     }
 
     @Test
-    void maximalSquare() {
+    void maximalSquareCase1() {
         char[][] arr = {
                 {1, 0, 1, 0, 0},
                 {1, 0, 1, 1, 1},
                 {1, 1, 1, 1, 1},
-                {1, 1, 0, 1, 0}
+                {1, 0, 0, 1, 0}
         };
 
         int maxSizeSquare = Algorithms.maximalSquare(arr);
         assertEquals(4, maxSizeSquare);
+    }
 
+    @Test
+    void maxSquareCase2() {
         char[][] arr2 = {
                 {1, 0, 1, 0, 0},
                 {1, 1, 1, 1, 1},
@@ -73,7 +77,77 @@ class AlgorithmsTest {
                 {1, 1, 1, 1, 0}
         };
 
-        maxSizeSquare = Algorithms.maximalSquare(arr);
+        int maxSizeSquare = Algorithms.maximalSquare(arr2);
         assertEquals(9, maxSizeSquare);
+    }
+
+    @Test
+    void maxSquareCase3() {
+        char[][] arr3 = {{0}};
+        int maxSizeSquare = Algorithms.maximalSquare(arr3);
+        assertEquals(0, maxSizeSquare);
+    }
+
+    @Test
+    void maxSquareCase4() {
+        char[][] arr4 = {{1}};
+        int maxSizeSquare = Algorithms.maximalSquare(arr4);
+        assertEquals(1, maxSizeSquare);
+    }
+
+    @Test
+    void maxSquareCase5() {
+        char[][] arr5 = {};
+        int maxSizeSquare = Algorithms.maximalSquare(arr5);
+        assertEquals(0, maxSizeSquare);
+    }
+
+    @Test
+    void maxSquareCase6() {
+        char[][] arr6 = {
+                {0, 1}
+        };
+        int maxSizeSquare = Algorithms.maximalSquare(arr6);
+        assertEquals(1, maxSizeSquare);
+    }
+
+    @Test
+    void maxSquareCase7() {
+        char[][] arr7 = {
+                {0},
+                {1}
+        };
+        int maxSizeSquare = Algorithms.maximalSquare(arr7);
+        assertEquals(1, maxSizeSquare);
+    }
+
+    @Test
+    void countNodes() {
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+
+        node1.setLeft(node2);
+        node1.setRight(node3);
+
+        node2.setLeft(node4);
+        node2.setRight(node5);
+
+        node3.setLeft(node6);
+
+        assertEquals(6, Algorithms.countNodes(node1));
+    }
+
+    @Test
+    void countNodesSingleNode() {
+        assertEquals(1, Algorithms.countNodes(new TreeNode(1)));
+    }
+
+    @Test
+    void countNodesEmptyRoot() {
+        assertEquals(0, Algorithms.countNodes(null));
     }
 }

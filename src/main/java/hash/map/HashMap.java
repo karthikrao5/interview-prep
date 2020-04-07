@@ -34,7 +34,7 @@ public class HashMap {
                 foundEntry = foundEntry.next;
             }
         } else {
-            System.out.println("Microseconds to get " + foundEntry.key + " to map is " + getTimeElapsed(start, LocalDateTime.now()));
+//            System.out.println("Microseconds to get " + foundEntry.key + " to map is " + getTimeElapsed(start, LocalDateTime.now()));
             return foundEntry.value;
         }
 
@@ -61,7 +61,7 @@ public class HashMap {
         }
 
         size++;
-        System.out.println("Microseconds to add " + arr[index].value + " to map is " + getTimeElapsed(start, LocalDateTime.now()));
+//        System.out.println("Microseconds to add " + arr[index].value + " to map is " + getTimeElapsed(start, LocalDateTime.now()));
     }
 
     private static long getTimeElapsed(LocalDateTime start, LocalDateTime end) {
@@ -78,7 +78,7 @@ public class HashMap {
             if (entry != null) {
                 Entry curr = entry;
                 while (curr != null) {
-                    System.out.println(String.format("(key: %d, value: %d)", curr.key, curr.value));
+//                    System.out.println(String.format("(key: %d, value: %d)", curr.key, curr.value));
                     curr = curr.next;
                 }
             }

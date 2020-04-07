@@ -1,8 +1,6 @@
 package algorithms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Algorithms {
     public static int reverse(int x) {
@@ -122,15 +120,71 @@ public class Algorithms {
      * Maximal square leet code mediuum #221
      */
     public static int maximalSquare(char[][] matrix) {
+        if (matrix.length == 0) {
+            return 0;
+        }
+
         //dp[i][j] is the length of the side of a square from bottom right corner
         int[][] dp = new int[matrix.length][matrix[0].length];
 
-        for(int row = 1; row < matrix.length; row++) {
+        for (int i = 0; i < dp.length; i++) {
+            dp[i][0] = matrix[i][0];
+        }
+        for (int j = 0; j < dp[0].length; j++) {
+            dp[0][j] = matrix[0][j];
+        }
+
+        int max = 0;
+        for (int row = 1; row < matrix.length; row++) {
             for (int col = 1; col < matrix[row].length; col++) {
                 if (matrix[row][col] == 1) {
-
+                    dp[row][col] = Math.min(Math.min(dp[row][col - 1], dp[row - 1][col]), dp[row - 1][col - 1]) + 1;
                 }
             }
+        }
+
+        for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[0].length; j++) {
+                if (max < dp[i][j]) {
+                    max = dp[i][j];
+                }
+            }
+        }
+
+        return max * max;
+    }
+
+    public static int countNodes(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+
+        int count = 0;
+
+        while (!q.isEmpty()) {
+            TreeNode curr = q.poll();
+            if (curr.right != null) {
+                q.add(curr.right);
+            }
+            if (curr.left != null) {
+                q.add(curr.left);
+            }
+
+            count++;
+        }
+
+        return count;
+    }
+
+    private static void print2dArray(int[][] input) {
+        System.out.println("Printing array");
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                System.out.print(input[i][j] + ", ");
+            }
+            System.out.println("");
         }
     }
 }

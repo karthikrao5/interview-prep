@@ -21,10 +21,10 @@ public class FasterCache {
             Node found = map.get(key);
             removeFromMiddle(found);
             addToTop(found);
-            print();
+//            print();
             return found.value;
         }
-        print();
+//        print();
         return -1;
     }
 
@@ -51,7 +51,7 @@ public class FasterCache {
                 addToTop(newNode);
             }
         }
-        print();
+//        print();
     }
 
     private void addToTop(Node curr) {
