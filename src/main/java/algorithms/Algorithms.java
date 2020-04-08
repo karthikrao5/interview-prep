@@ -180,6 +180,7 @@ public class Algorithms {
 
     /**
      * unfinished
+     *
      * @param secret
      * @param guess
      * @return
@@ -208,7 +209,7 @@ public class Algorithms {
         }
 
         //go thru guess and increment cows when a value is found as a key and decrement it
-        for(int i = 0; i < guess.length(); i++) {
+        for (int i = 0; i < guess.length(); i++) {
             Character sChar = secret.charAt(i);
             Character gChar = guess.charAt(i);
 
@@ -237,6 +238,101 @@ public class Algorithms {
     }
 
     public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-        return new double[]{};
+
+        double[] output = new double[queries.size()];
+        HashMap<String, HashMap<String, Double>> map = new HashMap();
+
+        for (int i = 0; i < equations.size(); i++) {
+//             A -> {B: 2}
+//             B -> {A: 1/2, C: 3}
+//             C -> {B: 1/3}
+            List<String> equation = equations.get(i);
+
+            String start = equation.get(0);
+            String end = equation.get(1);
+            double value = values[i];
+
+            HashMap<String, Double> edge = new HashMap();
+            HashMap<String, Double> edgeReverse = new HashMap();
+
+            edge.put(end, value);
+            edgeReverse.put(start, (1.0 / value));
+
+            if (map.containsKey(start)) {
+                map.get(start).put(end, value);
+            } else {
+                map.put(start, edge);
+            }
+
+            if (map.containsKey(end)) {
+                map.get(end).put(start, 1.0 / value);
+            } else {
+                map.put(end, edgeReverse);
+            }
+
+            if (map.containsKey(start)) {
+                map.get(start).put(start, 1.0);
+            } else {
+                map.put(start, new HashMap<String, Double>() {{
+                    put(start, 1.0);
+                }});
+            }
+
+            if (map.containsKey(end)) {
+                map.get(end).put(end, 1.0);
+            } else {
+                map.put(end, new HashMap<String, Double>() {{
+                    put(end, 1.0);
+                }});
+            }
+        }
+
+        System.out.println(map);
+
+
+        int outputCount = 0;
+
+        for (int i = 0; i < queries.size(); i++) {
+            System.out.println("---------------------------------");
+            HashSet<String> visited = new HashSet();
+            List<String> query = queries.get(i);
+            String start = query.get(0);
+            String end = query.get(1);
+
+            double calculatedVal = dfs(start, end, 1.0, map, visited);
+            output[outputCount] = calculatedVal < 0 ? -1.0 : calculatedVal;
+            outputCount++;
+            System.out.println("---------------------------------");
+        }
+
+        return output;
+    }
+
+    private static double dfs(String curr,
+                              String end,
+                              double val,
+                              HashMap<String, HashMap<String, Double>> map,
+                              HashSet<String> visited) {
+        System.out.println("Searching: " + curr + " for end: " + end);
+        visited.add(curr);
+        System.out.println("visited isnow: " + visited);
+
+        if (map.get(curr) != null && map.get(curr).containsKey(end)) {
+            System.out.println("Found final node: " + end + " returning " + map.get(curr).get(end) * val);
+            return map.get(curr).get(end) * val;
+        }
+
+        if (map.containsKey(curr)) {
+            System.out.println("checking children: " + map.get(curr).keySet());
+            for (String nextNode : map.get(curr).keySet()) {
+                System.out.println("checking child: " + nextNode);
+                if (!visited.contains(nextNode)) {
+                    System.out.println("making new call for : " + nextNode + " and using: " + map.get(curr).get(nextNode));
+                    return dfs(nextNode, end, val, map, visited) * map.get(curr).get(nextNode);
+                }
+            }
+        }
+        System.out.println("returning val: " + val);
+        return val;
     }
 }
