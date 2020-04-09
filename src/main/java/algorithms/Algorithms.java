@@ -238,101 +238,62 @@ public class Algorithms {
     }
 
     public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-
         double[] output = new double[queries.size()];
-        HashMap<String, HashMap<String, Double>> map = new HashMap();
+
+        HashMap<String, HashMap<String, Double>> map = new HashMap<>();
 
         for (int i = 0; i < equations.size(); i++) {
-//             A -> {B: 2}
-//             B -> {A: 1/2, C: 3}
-//             C -> {B: 1/3}
             List<String> equation = equations.get(i);
-
             String start = equation.get(0);
             String end = equation.get(1);
-            double value = values[i];
+            double val = values[i];
 
-            HashMap<String, Double> edge = new HashMap();
-            HashMap<String, Double> edgeReverse = new HashMap();
-
-            edge.put(end, value);
-            edgeReverse.put(start, (1.0 / value));
-
-            if (map.containsKey(start)) {
-                map.get(start).put(end, value);
-            } else {
-                map.put(start, edge);
-            }
-
-            if (map.containsKey(end)) {
-                map.get(end).put(start, 1.0 / value);
-            } else {
-                map.put(end, edgeReverse);
-            }
-
-            if (map.containsKey(start)) {
-                map.get(start).put(start, 1.0);
-            } else {
-                map.put(start, new HashMap<String, Double>() {{
-                    put(start, 1.0);
-                }});
-            }
-
-            if (map.containsKey(end)) {
-                map.get(end).put(end, 1.0);
-            } else {
-                map.put(end, new HashMap<String, Double>() {{
-                    put(end, 1.0);
-                }});
-            }
+            map.computeIfAbsent(start, ignore -> new HashMap<String, Double>() {{
+                put(start, 1.0);
+            }}).put(end, val);
+            map.computeIfAbsent(end, ignore -> new HashMap<String, Double>() {{
+                put(end, 1.0);
+            }}).put(start, 1.0 / val);
         }
 
-        System.out.println(map);
 
+        int counter = 0;
+        for (List<String> query : queries) {
+            // perform DFS to find the end node and return the accumulated value
+            HashSet<String> visited = new HashSet<>();
 
-        int outputCount = 0;
-
-        for (int i = 0; i < queries.size(); i++) {
-            System.out.println("---------------------------------");
-            HashSet<String> visited = new HashSet();
-            List<String> query = queries.get(i);
-            String start = query.get(0);
-            String end = query.get(1);
-
-            double calculatedVal = dfs(start, end, 1.0, map, visited);
-            output[outputCount] = calculatedVal < 0 ? -1.0 : calculatedVal;
-            outputCount++;
-            System.out.println("---------------------------------");
+            output[counter] = dfs(query.get(0), query.get(1), map, visited);
+            counter++;
         }
 
         return output;
     }
 
-    private static double dfs(String curr,
-                              String end,
-                              double val,
-                              HashMap<String, HashMap<String, Double>> map,
-                              HashSet<String> visited) {
-        System.out.println("Searching: " + curr + " for end: " + end);
+    private static double dfs(
+            String curr,
+            String end,
+            HashMap<String, HashMap<String, Double>> map,
+            HashSet<String> visited
+    ) {
         visited.add(curr);
-        System.out.println("visited isnow: " + visited);
-
-        if (map.get(curr) != null && map.get(curr).containsKey(end)) {
-            System.out.println("Found final node: " + end + " returning " + map.get(curr).get(end) * val);
-            return map.get(curr).get(end) * val;
-        }
 
         if (map.containsKey(curr)) {
-            System.out.println("checking children: " + map.get(curr).keySet());
-            for (String nextNode : map.get(curr).keySet()) {
-                System.out.println("checking child: " + nextNode);
-                if (!visited.contains(nextNode)) {
-                    System.out.println("making new call for : " + nextNode + " and using: " + map.get(curr).get(nextNode));
-                    return dfs(nextNode, end, val, map, visited) * map.get(curr).get(nextNode);
+            //base case
+            if (map.get(curr).containsKey(end)) {
+                return map.get(curr).get(end);
+            }
+
+            for (String child : map.get(curr).keySet()) {
+                if (!visited.contains(child)) {
+                    double dfs = dfs(child, end, map, visited);
+                    if (dfs > 0 ) return dfs * map.get(curr).get(child);
                 }
             }
+
+            return -1.0;
         }
-        System.out.println("returning val: " + val);
-        return val;
+
+//        should never get here. only way is if child has no children which it cant
+        return -1.0;
     }
 }

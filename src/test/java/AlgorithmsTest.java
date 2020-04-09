@@ -234,7 +234,14 @@ class AlgorithmsTest {
         );
 
         double[] solution = Algorithms.calcEquation(equations, values, queries);
-        double[] expectedSolution = new double[]{360.00000,0.00833,20.00000,1.00000,-1.00000,-1.00000};
+        double[] expectedSolution = new double[]{
+                360.00000,
+                0.00833,
+                20.00000,
+                1.00000,
+                -1.00000,
+                -1.00000
+        };
 
         System.out.println("output: " + Arrays.toString(solution));
 
