@@ -286,7 +286,7 @@ public class Algorithms {
             for (String child : map.get(curr).keySet()) {
                 if (!visited.contains(child)) {
                     double dfs = dfs(child, end, map, visited);
-                    if (dfs > 0 ) return dfs * map.get(curr).get(child);
+                    if (dfs > 0) return dfs * map.get(curr).get(child);
                 }
             }
 
@@ -295,5 +295,49 @@ public class Algorithms {
 
 //        should never get here. only way is if child has no children which it cant
         return -1.0;
+    }
+
+
+    /**
+     * Leetcode Easy 844
+     * Backspace String Compare
+     * Given two strings S and T, return if they are equal when both
+     * are typed into empty text editors. # means a backspace character.
+     * @param S
+     * @param T
+     * @return if the two strings are equal after removing the backspace characters
+     */
+    public static boolean backspaceCompare(String S, String T) {
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+
+        int counter = 0;
+
+        for (int i = S.length() - 1; i >= 0; i--) {
+            if (S.charAt(i) == '#') {
+                counter++;
+            } else {
+                if (counter > 0) {
+                    counter--;
+                    continue;
+                }
+                sb1.insert(0, S.charAt(i));
+            }
+        }
+
+        counter = 0;
+        for (int i = T.length() - 1; i >= 0; i--) {
+            if (T.charAt(i) == '#') {
+                counter++;
+            } else {
+                if (counter > 0) {
+                    counter--;
+                    continue;
+                }
+                sb2.insert(0, T.charAt(i));
+            }
+        }
+
+        return sb1.toString().compareTo(sb2.toString()) == 0;
     }
 }

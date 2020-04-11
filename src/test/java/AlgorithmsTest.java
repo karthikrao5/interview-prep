@@ -8,8 +8,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class AlgorithmsTest {
 
@@ -250,5 +249,42 @@ class AlgorithmsTest {
         for (int i = 0; i < solution.length; i++) {
             assertEquals(expectedSolution[i], solution[i], 0.00001);
         }
+    }
+
+    @Test
+    void backspaceStringCompareCase1() {
+        String S = "ab#c";
+        String T = "ad#c";
+
+        assertTrue(Algorithms.backspaceCompare(S, T));
+    }
+
+    @Test
+    void backspaceStringCompareCase2() {
+        String S = "bxj##tw";
+        String T = "bxo#j##tw";
+
+        assertTrue(Algorithms.backspaceCompare(S, T));
+    }
+
+    @Test
+    void backspaceStringCompareCase3() {
+        String S = "";
+        String T = "#";
+        assertTrue(Algorithms.backspaceCompare(S, T));
+    }
+
+    @Test
+    void backspaceStringCompareCase4() {
+        String S = "";
+        String T = "";
+        assertTrue(Algorithms.backspaceCompare(S, T));
+    }
+
+    @Test
+    void backspaceStringCompareCase5() {
+        String S = "a#c";
+        String T = "b";
+        assertFalse(Algorithms.backspaceCompare(S, T));
     }
 }
