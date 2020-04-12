@@ -287,4 +287,66 @@ class AlgorithmsTest {
         String T = "b";
         assertFalse(Algorithms.backspaceCompare(S, T));
     }
+
+    @Test
+    void sortedArrayMergeCase1() {
+        int[] a = new int[12];
+        a[0] = 2;
+        a[1] = 5;
+        a[2] = 6;
+        a[3] = 7;
+        a[4] = 10;
+        a[5] = 15;
+
+        System.out.println(a.length);
+
+        int[] b = new int[]{1, 3, 4, 8, 9, 12};
+
+        Algorithms.sortedMerge(a, b, 5, 5);
+        System.out.println(Arrays.toString(a));
+        int[] expected = new int[] {1,2,3,4,5,6,7,8,9,10,12,15};
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], a[i]);
+        }
+    }
+
+    @Test
+    void sortedArrayMergeCase2() {
+        int[] a = new int[12];
+        a[0] = 2;
+        a[1] = 5;
+        a[2] = 6;
+        a[3] = 7;
+
+        System.out.println(a.length);
+
+        int[] b = new int[]{1, 3, 4, 8, 9, 12};
+
+        Algorithms.sortedMerge(a, b, 3, 5);
+        int[] expected = new int[] {1,2,3,4,5,6,7,8,9,12};
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], a[i]);
+        }
+    }
+
+    @Test
+    void sortedArrayMergeCase3() {
+        int[] a = new int[6];
+        int[] b = new int[]{1, 3, 4, 8, 9, 12};
+
+        Algorithms.sortedMerge(a, b, 0, 5);
+        int[] expected = new int[] {1, 3, 4, 8, 9, 12};
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], a[i]);
+        }
+    }
+
+    @Test
+    void sortedArrayMergeCase4() {
+        int[] a = new int[0];
+        int[] b = new int[0];
+
+        Algorithms.sortedMerge(a, b, 0, 0);
+        assertEquals(0, a[0]);
+    }
 }

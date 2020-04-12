@@ -303,6 +303,7 @@ public class Algorithms {
      * Backspace String Compare
      * Given two strings S and T, return if they are equal when both
      * are typed into empty text editors. # means a backspace character.
+     *
      * @param S
      * @param T
      * @return if the two strings are equal after removing the backspace characters
@@ -339,5 +340,26 @@ public class Algorithms {
         }
 
         return sb1.toString().compareTo(sb2.toString()) == 0;
+    }
+
+    public static void sortedMerge(int[] a, int[] b, int lastA, int lastB) {
+        if (a == null || b == null || a.length <= 0 || b.length <= 0) {
+            return;
+        }
+
+        int mergedInd = lastA + lastB + 1;
+
+
+        //keep going until all of B is merged
+        while (lastB >= 0) {
+            if (lastA >= 0 && a[lastA] >= b[lastB]) {
+                a[mergedInd] = a[lastA];
+                lastA--;
+            } else {
+                a[mergedInd] = b[lastB];
+                lastB--;
+            }
+            mergedInd--;
+        }
     }
 }
