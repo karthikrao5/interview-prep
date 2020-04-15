@@ -1,5 +1,6 @@
 package algorithms;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Algorithms {
@@ -361,5 +362,51 @@ public class Algorithms {
             }
             mergedInd--;
         }
+    }
+
+    public static int minDominoRotations(int[] A, int[] B) {
+        if (A == null || B == null || A.length <= 0 || B.length <= 0 || A.length != B.length) {
+            return -1;
+        }
+
+        if (A.length == 1 && B.length == 1) {
+            return 0;
+        }
+
+        HashMap<Integer, Integer> map = new HashMap();
+        map.put(A[0], -1);
+        map.put(B[0], -1);
+        ArrayList<Integer> outputs = new ArrayList();
+
+        int[] targets = new int[] {A[0], B[0]};
+        for (int target : targets) {
+            int bRot = 0;
+            int aRot = 0;
+
+            boolean targetNotPossible = false;
+            for (int i = 0; i < A.length; i++) {
+                if (B[i] == target && A[i] != target) {
+                    //rotations if A is the row
+                    bRot++;
+                }
+
+                if (A[i] == target && B[i] != target) {
+                    //rotations if B is the row
+                    aRot++;
+                }
+
+                if (A[i] != target && B[i] != target) {
+                    targetNotPossible = true;
+                    break;
+                }
+            }
+            if (!targetNotPossible) {
+                outputs.add(Math.min(aRot, bRot));
+            } else {
+                outputs.add(-1);
+            }
+        }
+
+        return outputs.stream().filter(v -> v >= 0).mapToInt(val -> val).min().orElse(-1);
     }
 }

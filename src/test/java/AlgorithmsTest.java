@@ -304,8 +304,8 @@ class AlgorithmsTest {
 
         Algorithms.sortedMerge(a, b, 5, 5);
         System.out.println(Arrays.toString(a));
-        int[] expected = new int[] {1,2,3,4,5,6,7,8,9,10,12,15};
-        for(int i = 0; i < expected.length; i++) {
+        int[] expected = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15};
+        for (int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], a[i]);
         }
     }
@@ -323,8 +323,8 @@ class AlgorithmsTest {
         int[] b = new int[]{1, 3, 4, 8, 9, 12};
 
         Algorithms.sortedMerge(a, b, 3, 5);
-        int[] expected = new int[] {1,2,3,4,5,6,7,8,9,12};
-        for(int i = 0; i < expected.length; i++) {
+        int[] expected = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 12};
+        for (int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], a[i]);
         }
     }
@@ -335,8 +335,8 @@ class AlgorithmsTest {
         int[] b = new int[]{1, 3, 4, 8, 9, 12};
 
         Algorithms.sortedMerge(a, b, 0, 5);
-        int[] expected = new int[] {1, 3, 4, 8, 9, 12};
-        for(int i = 0; i < expected.length; i++) {
+        int[] expected = new int[]{1, 3, 4, 8, 9, 12};
+        for (int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], a[i]);
         }
     }
@@ -348,5 +348,29 @@ class AlgorithmsTest {
 
         Algorithms.sortedMerge(a, b, 0, 0);
         assertEquals(0, a[0]);
+    }
+
+    @Test
+    void dominoTest1() {
+        int[] A = new int[]{2, 1, 2, 4, 2, 2};
+        int[] B = new int[]{5, 2, 6, 2, 3, 2};
+
+        assertEquals(2, Algorithms.minDominoRotations(A, B));
+    }
+
+    @Test
+    void dominoTest2() {
+        int[] A = new int[]{2, 1, 2, 4, 2, 2};
+        int[] B = new int[]{5, 4, 6, 2, 3, 2};
+
+        assertEquals(-1, Algorithms.minDominoRotations(A, B));
+    }
+
+    @Test
+    void dominoTest3() {
+        int[] A = new int[]{3, 5, 1, 2, 3};
+        int[] B = new int[]{3, 6, 3, 3, 4};
+
+        assertEquals(-1, Algorithms.minDominoRotations(A, B));
     }
 }
