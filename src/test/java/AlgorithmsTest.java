@@ -373,4 +373,55 @@ class AlgorithmsTest {
 
         assertEquals(-1, Algorithms.minDominoRotations(A, B));
     }
+
+    @Test
+    void treeHeightCase1() {
+        TreeNode root = new TreeNode(9);
+        TreeNode rootLeft = new TreeNode(5);
+        TreeNode rootRight = new TreeNode(10);
+        root.setLeft(rootLeft);
+        root.setRight(rootRight);
+
+        TreeNode secondLeft1 = new TreeNode(2);
+        TreeNode thirdLeft1 = new TreeNode(1);
+
+        rootLeft.setLeft(secondLeft1);
+
+        secondLeft1.setLeft(thirdLeft1);
+
+        assertEquals(3, Algorithms.treeHeight(root));
+    }
+
+    @Test
+    void treeHeightCase2() {
+        TreeNode root = new TreeNode(9);
+        assertEquals(0, Algorithms.treeHeight(root));
+    }
+
+    @Test
+    void treeHeightCase3() {
+        TreeNode root = new TreeNode(8);
+        root.setRight(new TreeNode((11)));
+
+        assertEquals(1, Algorithms.treeHeight(root));
+    }
+
+    @Test
+    void emailCase1() {
+        String[] emails = new String[] {"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
+
+        assertEquals(2, Algorithms.numUniqueEmails(emails));
+    }
+
+    @Test
+    void emailCase2() {
+        String[] emails = new String[] {""};
+        assertEquals(0, Algorithms.numUniqueEmails(emails));
+    }
+
+    @Test
+    void emailCase3() {
+        String[] emails = new String[] {"test.email@leetcode.com", "testemail+bobby@leetcode.com"};
+        assertEquals(1, Algorithms.numUniqueEmails(emails));
+    }
 }

@@ -409,4 +409,52 @@ public class Algorithms {
 
         return outputs.stream().filter(v -> v >= 0).mapToInt(val -> val).min().orElse(-1);
     }
+
+    public static int treeHeight(TreeNode node) {
+        return treeHeightRecursive(node);
+    }
+
+    private static int treeHeightRecursive(TreeNode node) {
+        if (node.left == null && node.right == null) {
+            return 0;
+        }
+
+        if (node.left == null) {
+            return treeHeightRecursive(node.right) + 1;
+        } else if (node.right == null) {
+            return treeHeightRecursive(node.left) + 1;
+        } else {
+            return Math.max(treeHeightRecursive(node.left), treeHeightRecursive(node.right)) + 1;
+        }
+    }
+
+    public static int numUniqueEmails(String[] emails) {
+        if (emails.length < 1) {
+            return 0;
+        }
+        //compute the real address after the two rules then throw them into a set
+        //return set size
+        StringBuilder sb = new StringBuilder();
+        HashSet<String> set = new HashSet();
+
+        for (String email : emails) {
+            for (int i = 0; i < email.length(); i++) {
+                if (email.charAt(i) == '+') {
+                    int atIndex = email.indexOf('@');
+                    for(int j = atIndex; j < email.length(); j++) {
+                        sb.append(email.charAt(j));
+                    }
+                    break;
+                }
+                if (email.charAt(i) != '.') {
+                    sb.append(email.charAt(i));
+                }
+            }
+            System.out.println(sb.toString());
+            set.add(sb.toString());
+            sb.setLength(0);
+        }
+
+        return set.size();
+    }
 }
