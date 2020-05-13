@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="algorithms.MinStackTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-13T00:27:04" hostname="odysseus" time="0.016">
+  <properties/>
+  <testcase name="case1()" classname="algorithms.MinStackTest" time="0.016"/>
+  <system-out><![CDATA[top of stack: node(val: -10, minVal: -10)
+top of stack: node(val: 14, minVal: -10)
+top of stack: node(val: -20, minVal: -20)
+top of stack: node(val: 10, minVal: -10)
+top of stack: node(val: -7, minVal: -10)
+top of stack: node(val: -7, minVal: -10)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
