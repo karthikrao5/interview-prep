@@ -63,3 +63,14 @@ Positive BF:
  1. left rotation (if a node's right child is right heavy (BF of -1))
  2. right left rotation (if a node's right child is left heavy (BF of 0 or 1))
  
+ 
+ ## Red black Tree
+ 
+ Another type of self balancing BST
+ guarantees O(log N) look up after every insertion and deletion
+ 
+ Similar to AVL tree except insertion and deletion of AVL tree can be expensive with many rotations
+ 
+ If insertion and deletion is frequent and search is more frequent, use Red black tree
+ 
+ 
