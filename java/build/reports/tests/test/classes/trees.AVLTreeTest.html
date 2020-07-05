@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - AVLTreeTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>AVLTreeTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/trees.html">trees</a> &gt; AVLTreeTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">13</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.038s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">insertLeftRightRotation()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">insertLeftRotation()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">insertOneItem()</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">insertRightLeftRotation()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">insertRightRotation()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">insertThreeItemsInOrder()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">insertTwoItemsInOrder()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">largeInsert()</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">largeInsert2()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">largeInsert3()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">largeInsert4()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">largeInsert5()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">largeInsert6()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>root is null inserting one value: 1
+root is null inserting one value: 14
+Attempting to insert: 12
+Attempting to insert: 12
+Balance factor on node: 14 is : 1
+Attempting to insert: 1
+Attempting to insert: 1
+Attempting to insert: 1
+Balance factor on node: 12 is : 1
+Balance factor on node: 14 is : 2
+found right rotation around: 14
+Attempting to insert: 0
+Attempting to insert: 0
+Attempting to insert: 0
+Balance factor on node: 1 is : 1
+Balance factor on node: 12 is : 1
+Attempting to insert: 6
+Attempting to insert: 6
+Attempting to insert: 6
+Balance factor on node: 1 is : 0
+Balance factor on node: 12 is : 1
+Attempting to insert: 4
+Attempting to insert: 4
+Attempting to insert: 4
+Attempting to insert: 4
+Balance factor on node: 6 is : 1
+Balance factor on node: 1 is : -1
+Balance factor on node: 12 is : 2
+found left-right rotation around: 12
+Attempting to insert: 9
+Attempting to insert: 9
+Attempting to insert: 9
+Balance factor on node: 12 is : 0
+Balance factor on node: 6 is : 0
+   6       
+  / \   
+ /   \  
+ 1   12   
+/ \ / \ 
+0 4 9 14 
+                
+root is null inserting one value: 12
+Attempting to insert: 15
+Attempting to insert: 15
+Balance factor on node: 12 is : -1
+Attempting to insert: 13
+Attempting to insert: 13
+Attempting to insert: 13
+Balance factor on node: 15 is : 1
+Balance factor on node: 12 is : -2
+AKSJDHFGAJKLDEHFGKLAJSDHFLJKAHF
+found right-left rotation around: 12
+root is null inserting one value: 12
+Attempting to insert: 9
+Attempting to insert: 9
+Balance factor on node: 12 is : 1
+Attempting to insert: 10
+Attempting to insert: 10
+Attempting to insert: 10
+Balance factor on node: 9 is : -1
+Balance factor on node: 12 is : 2
+found left-right rotation around: 12
+root is null inserting one value: 10
+Attempting to insert: 9
+Attempting to insert: 9
+Balance factor on node: 10 is : 1
+Attempting to insert: 8
+Attempting to insert: 8
+Attempting to insert: 8
+Balance factor on node: 9 is : 1
+Balance factor on node: 10 is : 2
+found right rotation around: 10
+Attempting to insert: 7
+Attempting to insert: 7
+Attempting to insert: 7
+Balance factor on node: 8 is : 1
+Balance factor on node: 9 is : 1
+Attempting to insert: 6
+Attempting to insert: 6
+Attempting to insert: 6
+Attempting to insert: 6
+Balance factor on node: 7 is : 1
+Balance factor on node: 8 is : 2
+found right rotation around: 8
+Balance factor on node: 9 is : 1
+root is null inserting one value: 15
+Attempting to insert: 10
+Attempting to insert: 10
+Balance factor on node: 15 is : 1
+Attempting to insert: 20
+Attempting to insert: 20
+Balance factor on node: 15 is : 0
+Attempting to insert: 12
+Attempting to insert: 12
+Attempting to insert: 12
+Balance factor on node: 10 is : -1
+Balance factor on node: 15 is : 1
+Attempting to insert: 11
+Attempting to insert: 11
+Attempting to insert: 11
+Attempting to insert: 11
+Balance factor on node: 12 is : 1
+Balance factor on node: 10 is : -2
+AKSJDHFGAJKLDEHFGKLAJSDHFLJKAHF
+found right-left rotation around: 10
+Balance factor on node: 15 is : 1
+   15       
+  / \   
+ /   \  
+ 11   20   
+/ \     
+10 12     
+                
+root is null inserting one value: 15
+Attempting to insert: 10
+Attempting to insert: 10
+Balance factor on node: 15 is : 1
+Attempting to insert: 20
+Attempting to insert: 20
+Balance factor on node: 15 is : 0
+Attempting to insert: 12
+Attempting to insert: 12
+Attempting to insert: 12
+Balance factor on node: 10 is : -1
+Balance factor on node: 15 is : 1
+Attempting to insert: 17
+Attempting to insert: 17
+Attempting to insert: 17
+Balance factor on node: 20 is : 1
+Balance factor on node: 15 is : 0
+Attempting to insert: 18
+Attempting to insert: 18
+Attempting to insert: 18
+Attempting to insert: 18
+Balance factor on node: 17 is : -1
+Balance factor on node: 20 is : 2
+found left-right rotation around: 20
+Balance factor on node: 15 is : 0
+root is null inserting one value: 10
+Attempting to insert: 5
+Attempting to insert: 5
+Balance factor on node: 10 is : 1
+Attempting to insert: 15
+Attempting to insert: 15
+Balance factor on node: 10 is : 0
+Attempting to insert: -10
+Attempting to insert: -10
+Attempting to insert: -10
+Balance factor on node: 5 is : 1
+Balance factor on node: 10 is : 1
+Attempting to insert: -20
+Attempting to insert: -20
+Attempting to insert: -20
+Attempting to insert: -20
+Balance factor on node: -10 is : 1
+Balance factor on node: 5 is : 2
+found right rotation around: 5
+Balance factor on node: 10 is : 1
+   10       
+  / \   
+ /   \  
+ -10   15   
+/ \     
+-20 5     
+                
+root is null inserting one value: 10
+Attempting to insert: 5
+Attempting to insert: 5
+Balance factor on node: 10 is : 1
+Attempting to insert: 15
+Attempting to insert: 15
+Balance factor on node: 10 is : 0
+Attempting to insert: -10
+Attempting to insert: -10
+Attempting to insert: -10
+Balance factor on node: 5 is : 1
+Balance factor on node: 10 is : 1
+Attempting to insert: -5
+Attempting to insert: -5
+Attempting to insert: -5
+Attempting to insert: -5
+Balance factor on node: -10 is : -1
+Balance factor on node: 5 is : 2
+found left-right rotation around: 5
+Balance factor on node: 10 is : 1
+   10       
+  / \   
+ /   \  
+ -5   15   
+/ \     
+-10 5     
+                
+root is null inserting one value: 10
+Attempting to insert: 1
+Attempting to insert: 1
+Balance factor on node: 10 is : 1
+Attempting to insert: 11
+Attempting to insert: 11
+Balance factor on node: 10 is : 0
+root is null inserting one value: 1
+Attempting to insert: 2
+Attempting to insert: 2
+Balance factor on node: 1 is : -1
+Attempting to insert: 3
+Attempting to insert: 3
+Attempting to insert: 3
+Balance factor on node: 2 is : -1
+Balance factor on node: 1 is : -2
+found left rotation around: 1
+root is null inserting one value: 10
+Attempting to insert: 9
+Attempting to insert: 9
+Balance factor on node: 10 is : 1
+Attempting to insert: 8
+Attempting to insert: 8
+Attempting to insert: 8
+Balance factor on node: 9 is : 1
+Balance factor on node: 10 is : 2
+found right rotation around: 10
+root is null inserting one value: 10
+Attempting to insert: 1
+Attempting to insert: 1
+Balance factor on node: 10 is : 1
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.8.1</a> at Jul 5, 2020, 2:46:39 PM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,17 +1,251 @@
-*top of stack: node(val: -10, minVal: -10)
-)top of stack: node(val: 14, minVal: -10)
-*top of stack: node(val: -20, minVal: -20)
-)top of stack: node(val: 10, minVal: -10)
-)top of stack: node(val: -7, minVal: -10)
-)top of stack: node(val: -7, minVal: -10)
-"$output: [6.0, 0.5, -1.0, 1.0, -1.0]
-#=output: [360.0, 0.008333333333333333, 20.0, 1.0, -1.0, -1.0]
-%12
-%([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15]
-&12
-1testemail@leetcode.com
-1testemail@leetcode.com
-1testemail@lee.tcode.com
-2
-3testemail@leetcodecom
-3testemail@leetcode.com
+$root is null inserting one value: 1
+%root is null inserting one value: 14
+Attempting to insert: 12
+Attempting to insert: 12
+"Balance factor on node: 14 is : 1
+Attempting to insert: 1
+Attempting to insert: 1
+Attempting to insert: 1
+"Balance factor on node: 12 is : 1
+"Balance factor on node: 14 is : 2
+ found right rotation around: 14
+Attempting to insert: 0
+Attempting to insert: 0
+Attempting to insert: 0
+!Balance factor on node: 1 is : 1
+"Balance factor on node: 12 is : 1
+Attempting to insert: 6
+Attempting to insert: 6
+Attempting to insert: 6
+!Balance factor on node: 1 is : 0
+"Balance factor on node: 12 is : 1
+Attempting to insert: 4
+Attempting to insert: 4
+Attempting to insert: 4
+Attempting to insert: 4
+!Balance factor on node: 6 is : 1
+"Balance factor on node: 1 is : -1
+"Balance factor on node: 12 is : 2
+%found left-right rotation around: 12
+Attempting to insert: 9
+Attempting to insert: 9
+Attempting to insert: 9
+"Balance factor on node: 12 is : 0
+!Balance factor on node: 6 is : 0
+   6       
+	  / \   
+	 /   \  
+ 1   12   
+	/ \ / \ 
+
+0 4 9 14 
+                
+%root is null inserting one value: 12
+Attempting to insert: 15
+Attempting to insert: 15
+#Balance factor on node: 12 is : -1
+Attempting to insert: 13
+Attempting to insert: 13
+Attempting to insert: 13
+"Balance factor on node: 15 is : 1
+#Balance factor on node: 12 is : -2
+ AKSJDHFGAJKLDEHFGKLAJSDHFLJKAHF
+%found right-left rotation around: 12
+%root is null inserting one value: 12
+Attempting to insert: 9
+Attempting to insert: 9
+"Balance factor on node: 12 is : 1
+Attempting to insert: 10
+Attempting to insert: 10
+Attempting to insert: 10
+"Balance factor on node: 9 is : -1
+"Balance factor on node: 12 is : 2
+%found left-right rotation around: 12
+%root is null inserting one value: 10
+Attempting to insert: 9
+Attempting to insert: 9
+"Balance factor on node: 10 is : 1
+Attempting to insert: 8
+Attempting to insert: 8
+Attempting to insert: 8
+!Balance factor on node: 9 is : 1
+"Balance factor on node: 10 is : 2
+ found right rotation around: 10
+Attempting to insert: 7
+Attempting to insert: 7
+Attempting to insert: 7
+!Balance factor on node: 8 is : 1
+!Balance factor on node: 9 is : 1
+Attempting to insert: 6
+Attempting to insert: 6
+Attempting to insert: 6
+Attempting to insert: 6
+!Balance factor on node: 7 is : 1
+!Balance factor on node: 8 is : 2
+found right rotation around: 8
+!Balance factor on node: 9 is : 1
+%root is null inserting one value: 15
+Attempting to insert: 10
+Attempting to insert: 10
+"Balance factor on node: 15 is : 1
+Attempting to insert: 20
+Attempting to insert: 20
+"Balance factor on node: 15 is : 0
+Attempting to insert: 12
+Attempting to insert: 12
+Attempting to insert: 12
+#Balance factor on node: 10 is : -1
+"Balance factor on node: 15 is : 1
+Attempting to insert: 11
+Attempting to insert: 11
+Attempting to insert: 11
+Attempting to insert: 11
+"Balance factor on node: 12 is : 1
+#Balance factor on node: 10 is : -2
+ AKSJDHFGAJKLDEHFGKLAJSDHFLJKAHF
+%found right-left rotation around: 10
+"Balance factor on node: 15 is : 1
+   15       
+	  / \   
+	 /   \  
+ 11   20   
+	/ \     
+10 12     
+                
+%root is null inserting one value: 15
+Attempting to insert: 10
+Attempting to insert: 10
+"Balance factor on node: 15 is : 1
+Attempting to insert: 20
+Attempting to insert: 20
+"Balance factor on node: 15 is : 0
+Attempting to insert: 12
+Attempting to insert: 12
+Attempting to insert: 12
+#Balance factor on node: 10 is : -1
+"Balance factor on node: 15 is : 1
+Attempting to insert: 17
+Attempting to insert: 17
+Attempting to insert: 17
+"Balance factor on node: 20 is : 1
+"Balance factor on node: 15 is : 0
+Attempting to insert: 18
+Attempting to insert: 18
+Attempting to insert: 18
+Attempting to insert: 18
+#Balance factor on node: 17 is : -1
+"Balance factor on node: 20 is : 2
+%found left-right rotation around: 20
+"Balance factor on node: 15 is : 0
+	%root is null inserting one value: 10
+	Attempting to insert: 5
+	Attempting to insert: 5
+	"Balance factor on node: 10 is : 1
+	Attempting to insert: 15
+	Attempting to insert: 15
+	"Balance factor on node: 10 is : 0
+	Attempting to insert: -10
+	Attempting to insert: -10
+	Attempting to insert: -10
+	!Balance factor on node: 5 is : 1
+	"Balance factor on node: 10 is : 1
+	Attempting to insert: -20
+	Attempting to insert: -20
+	Attempting to insert: -20
+	Attempting to insert: -20
+	#Balance factor on node: -10 is : 1
+	!Balance factor on node: 5 is : 2
+	found right rotation around: 5
+	"Balance factor on node: 10 is : 1
+	   10       
+		  / \   
+		 /   \  
+	 -10   15   
+		/ \     
+	-20 5     
+	                
+
+%root is null inserting one value: 10
+
+Attempting to insert: 5
+
+Attempting to insert: 5
+
+"Balance factor on node: 10 is : 1
+
+Attempting to insert: 15
+
+Attempting to insert: 15
+
+"Balance factor on node: 10 is : 0
+
+Attempting to insert: -10
+
+Attempting to insert: -10
+
+Attempting to insert: -10
+
+!Balance factor on node: 5 is : 1
+
+"Balance factor on node: 10 is : 1
+
+Attempting to insert: -5
+
+Attempting to insert: -5
+
+Attempting to insert: -5
+
+Attempting to insert: -5
+
+$Balance factor on node: -10 is : -1
+
+!Balance factor on node: 5 is : 2
+
+$found left-right rotation around: 5
+
+"Balance factor on node: 10 is : 1
+
+   10       
+
+	  / \   
+
+	 /   \  
+
+ -5   15   
+
+	/ \     
+
+-10 5     
+
+                
+%root is null inserting one value: 10
+Attempting to insert: 1
+Attempting to insert: 1
+"Balance factor on node: 10 is : 1
+Attempting to insert: 11
+Attempting to insert: 11
+"Balance factor on node: 10 is : 0
+$root is null inserting one value: 1
+Attempting to insert: 2
+Attempting to insert: 2
+"Balance factor on node: 1 is : -1
+Attempting to insert: 3
+Attempting to insert: 3
+Attempting to insert: 3
+"Balance factor on node: 2 is : -1
+"Balance factor on node: 1 is : -2
+found left rotation around: 1
+%root is null inserting one value: 10
+Attempting to insert: 9
+Attempting to insert: 9
+"Balance factor on node: 10 is : 1
+Attempting to insert: 8
+Attempting to insert: 8
+Attempting to insert: 8
+!Balance factor on node: 9 is : 1
+"Balance factor on node: 10 is : 2
+ found right rotation around: 10
+%root is null inserting one value: 10
+Attempting to insert: 1
+Attempting to insert: 1
+"Balance factor on node: 10 is : 1
